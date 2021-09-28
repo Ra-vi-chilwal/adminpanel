@@ -51,6 +51,8 @@ router.patch('/:id',async(req,res)=> {
 //for post request :
 router.post("/", (req, res) => {
 	const package1 = new Package1({
+        CaseId:req.body.CaseId,
+        ClientId:req.body.ClientId,
 		candidatename: req.body.candidatename,
 		Fname: req.body.Fname,
         Mname:req.body.Mname,

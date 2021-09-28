@@ -77,7 +77,9 @@ app.use("/package1", package1Route);
 app.use("/image", imageRoute);
 app.use("/companycheck", companycheckRoute);
 app.use("/vendorinit", vendorinitRoute)
-//app.use('/profile', express.static('upload/images'));
+
+//for image
+app.use('/profile', express.static('upload/images'));
 
 //userdefine
 app.get("/", (req, res) => {

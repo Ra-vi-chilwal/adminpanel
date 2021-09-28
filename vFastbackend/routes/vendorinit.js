@@ -62,16 +62,7 @@ router.delete('/:id',async(req,res)=> {
 
 })
 
-// router.delete("/:id",async(req,res)=>{
-//     const id = req.params.id;
-//     try{
-//         const result=await Addresscheck.findByIdAndDelete(id);
 
-//         res.send(result)
-//     }catch(error){
-//         console.log(error.message)
-//     }
-// })
 
 //for post request :
 router.post("/",upload.single('vendorimg'), (req, res) => {
@@ -81,32 +72,32 @@ clientId:req.body.clientId,
 caseId:req.body.caseId,
 candidatename: req.body.candidatename,
 vendorimg:req.file.filename,
-// Fname: req.body.Fname,
-// Mname:req.body.Mname,
-// gender: req.body.gender,
-// email:req.body.email,
-// contactnumber: req.body.contactnumber,
-// DOB:req.body.DOB,
-// Aadharno:req.body.Aadharno,
-// address: req.body.address,
-// pincode: req.body.pincode,
-// companyname: req.body.companyname,
-// referencename: req.body.referencename,
-// referececontactno: req.body.referececontactno,
-// refereceaddress: req.body.refereceaddress,
-// nameofemp:req.body.nameofemp,
-// contactdetails:req.body.contactdetails,
-// contact: req.body.contact,
-// offerexp: req.body.offerexp,
-// Board:req.body.Board,
-// yearIn: req.body.yearIn,
-// yearOut: req.body.yearOut,
-// remark: req.body.remark,
-// detailremark:req.body.detailremark,
-// vendorname:req.body.vendorname,
-// city:req.body.city,
-// price:req.body.price,
-// TAT:req.body.TAT
+Fname: req.body.Fname,
+Mname:req.body.Mname,
+gender: req.body.gender,
+email:req.body.email,
+contactnumber: req.body.contactnumber,
+DOB:req.body.DOB,
+Aadharno:req.body.Aadharno,
+address: req.body.address,
+pincode: req.body.pincode,
+companyname: req.body.companyname,
+referencename: req.body.referencename,
+referececontactno: req.body.referececontactno,
+refereceaddress: req.body.refereceaddress,
+nameofemp:req.body.nameofemp,
+contactdetails:req.body.contactdetails,
+contact: req.body.contact,
+offerexp: req.body.offerexp,
+Board:req.body.Board,
+yearIn: req.body.yearIn,
+yearOut: req.body.yearOut,
+remark: req.body.remark,
+detailremark:req.body.detailremark,
+vendorname:req.body.vendorname,
+city:req.body.city,
+price:req.body.price,
+TAT:req.body.TAT
 
 
 	});
@@ -122,35 +113,3 @@ vendorimg:req.file.filename,
 });
 
 module.exports = router;
-//http://localhost:3000/gapcheck
-
-// clientId:req.body.clientId,
-// caseId:req.body.caseId,
-// candidatename: req.body.candidatename,
-// vendorimg:req.file.filename
-// Fname: req.body.Fname,
-// Mname:req.body.Mname,
-// gender: req.body.gender,
-// email:req.body.email,
-// contactnumber: req.body.contactnumber,
-// DOB:req.body.DOB,
-// Aadharno:req.body.Aadharno,
-// address: req.body.address,
-// pincode: req.body.pincode,
-// companyname: req.body.companyname,
-// referencename: req.body.referencename,
-// referececontactno: req.body.referececontactno,
-// refereceaddress: req.body.refereceaddress,
-// nameofemp:req.body.nameofemp,
-// contactdetails:req.body.contactdetails,
-// contact: req.body.contact,
-// offerexp: req.body.offerexp,
-// Board:req.body.Board,
-// yearIn: req.body.yearIn,
-// yearOut: req.body.yearOut,
-// remark: req.body.remark,
-// detailremark:req.body.detailremark,
-// vendorname:req.body.vendorname,
-// city:req.body.city,
-// price:req.body.price,
-// TAT:req.body.TAT

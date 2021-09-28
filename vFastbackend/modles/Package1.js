@@ -2,6 +2,18 @@
 const mongoose = require("mongoose");
 
 const Package1Schema = mongoose.Schema({
+	CaseId: {
+		type: String,
+		required: true,
+	},
+	ClientId: {
+		type: String,
+		required: true,
+	},
+	Fname: {
+		type: String,
+		required: true,
+	},
 	candidatename: {
 		type: String,
 		required: true,
@@ -10,7 +22,7 @@ const Package1Schema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	
+
 	Mname: {
 		type: String,
 		required: true,
@@ -27,7 +39,7 @@ const Package1Schema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	
+
 	DOB: {
 		type: String,
 		required: true,
@@ -36,7 +48,7 @@ const Package1Schema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	
+
 	address: {
 		type: String,
 		required: true,
@@ -45,7 +57,7 @@ const Package1Schema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	
+
 	companyname: {
 		type: String,
 		required: true,
@@ -78,29 +90,29 @@ const Package1Schema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	
 
-    Board: {
+
+	Board: {
 		type: String,
 		required: true,
 	},
-    yearIn: {
+	yearIn: {
 		type: String,
 		required: true,
 	},
-    yearOut: {
+	yearOut: {
 		type: String,
 		required: true,
 	},
-    remark: {
+	remark: {
 		type: String,
 		required: true,
 	},
-    detailremark: {
+	detailremark: {
 		type: String,
 		required: true,
 	},
-   
+
 	date: {
 		type: Date,
 		default: Date.now,

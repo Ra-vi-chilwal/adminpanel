@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Image = require("../modles/Image");
+const VendorInitimg = require("../modles/VendorInitimg");
 const multer = require("multer");
  const path = require("path");
 // const upload = multer({dest : "public/uploads/"})
@@ -15,25 +15,11 @@ var storage=multer.diskStorage({
         cb(null,Date.now()+file.originalname)
     }
 })
-
-const fileFilter = (req,file,cb)=> {
-    if(file.mimetype === "image/jpeg" || file.mimetype === "image/png" || file.mimetype ==="image/pdf"){
-    cb(null,true);
-}
- else {
-cb(null,false);
-}
-};
-var upload=multer({storage:storage,
-limits:{
-    //fileSize:
-},
-fileFilter:fileFilter
-});
+var upload=multer({storage:storage});
 //for get request
 router.get('/',async(req,res) => {
     try{
-           const image = await Image.find()
+           const image = await image.find()
            res.json(image)
     }catch(err){
         res.send('Error ' + err)
@@ -42,7 +28,7 @@ router.get('/',async(req,res) => {
 //for get by id
 router.get('/:id', async(req,res) => {
     try{
-           const image = await Image.findById(req.params.id)
+           const image = await image.findById(req.params.id)
            res.json(image)
     }catch(err){
         res.send('Error ' + err)
@@ -52,8 +38,8 @@ router.get('/:id', async(req,res) => {
 //for update or patch
 router.patch('/:id',async(req,res)=> {
     try{
-        const image = await Image.findById(req.params.id) 
-        image.imgname = req.body.imgname
+        const image = await image.findById(req.params.id) 
+        image.name = req.body.name
         const a1 = await image.save()
         res.json(a1)   
     }catch(err){
@@ -61,15 +47,7 @@ router.patch('/:id',async(req,res)=> {
     }
 
 })
-//for delete request
-router.delete("/:id",async(req,res)=>{
-    try{
-        const image=await Image.findByIdAndDelete(req.params.id);
-        res.json(image)
-    }catch(err){
-        res.send("error",err)
-    }
-})
+//for image upload
 
 //for post request :
 router.post("/",upload.single('packageimage'), (req, res) => {
