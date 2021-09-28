@@ -49,11 +49,52 @@ const VendorInitSchema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	pincode: {
+	street: {
+		type: String,
+		required: true,
+	},
+	city: {
+		type: String,
+		required: true,
+	},
+	state: {
+		type: String,
+		required: true,
+	},
+	country: {
 		type: String,
 		required: true,
 	},
 	
+	pincode: {
+		type: String,
+		required: true,
+	},
+	c_address: {
+		type: String,
+		required: true,
+	},
+	c_street: {
+		type: String,
+		required: true,
+	},
+	c_city: {
+		type: String,
+		required: true,
+	},
+	c_state: {
+		type: String,
+		required: true,
+	},
+	c_country: {
+		type: String,
+		required: true,
+	},
+	
+	c_pincode: {
+		type: String,
+		required: true,
+	},
 	companyname: {
 		type: String,
 		required: true,
