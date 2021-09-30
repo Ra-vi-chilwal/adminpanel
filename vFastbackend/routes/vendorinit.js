@@ -71,7 +71,7 @@ router.post("/",upload.single('vendorimg'), (req, res) => {
 clientId:req.body.clientId,
 caseId:req.body.caseId,
 candidatename: req.body.candidatename,
-vendorimg:req.file.filename,
+//vendorimg:req.file.filename,
 Fname: req.body.Fname,
 Mname:req.body.Mname,
 gender: req.body.gender,

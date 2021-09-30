@@ -67,6 +67,7 @@ const package1Route = require("./routes/package1");
 const imageRoute = require("./routes/image");
 const companycheckRoute = require("./routes/companycheck");
 const vendorinitRoute = require("./routes/vendorinit")
+const vendercasehistoryRoute = require("./routes/vendercasehistory")
 //appuse
 app.use("/addresscheck", addresscheckRoute);
 app.use("/clientrelationship", clientrelationshipRoute);
@@ -77,6 +78,7 @@ app.use("/package1", package1Route);
 app.use("/image", imageRoute);
 app.use("/companycheck", companycheckRoute);
 app.use("/vendorinit", vendorinitRoute)
+app.use("/vendercasehistory", vendercasehistoryRoute)
 
 //for image
 app.use('/profile', express.static('upload/images'));
