@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const EducationCheck = require("../modles/EducationCheck");
+const Recordcheck= require("../modles/Recordcheck");
 const multer = require("multer");
  const path = require("path");
 // const upload = multer({dest : "public/uploads/"})
@@ -19,8 +19,8 @@ var upload=multer({storage:storage});
 //for get request
 router.get('/',async(req,res) => {
     try{
-           const educationcheck = await EducationCheck.find()
-           res.json(educationcheck)
+           const recordcheck= await Recordcheck.find()
+           res.json(recordcheck)
     }catch(err){
         res.send('Error ' + err)
     }
@@ -28,8 +28,8 @@ router.get('/',async(req,res) => {
 //for get by id
 router.get('/:id', async(req,res) => {
     try{
-           const educationcheck = await EducationCheck.findById(req.params.id)
-           res.json(educationcheck)
+           const recordcheck = await Recordcheck.findById(req.params.id)
+           res.json(recordcheck)
     }catch(err){
         res.send('Error ' + err)
     }
@@ -38,9 +38,9 @@ router.get('/:id', async(req,res) => {
 //for update or patch
 router.patch('/:id',async(req,res)=> {
     try{
-        const educationcheck = await educationcheck.findById(req.params.id) 
-        educationcheck.name = req.body.name
-        const a1 = await educationcheck.save()
+        const recordcheck = await Recordcheck.findById(req.params.id) 
+        recordcheck.name = req.body.name
+        const a1 = await recordcheck.save()
         res.json(a1)   
     }catch(err){
         res.send('Error')
@@ -52,13 +52,13 @@ router.patch('/:id',async(req,res)=> {
 //for post request :
 router.post("/",upload.single('image'), (req, res) => {
     console.log(req.file)
-	const educationcheck = new EducationCheck({
-         clientid: req.body.clientid,
+	const recordcheck = new Recordcheck({
+       
 		 candidatename: req.body.candidatename,
-         gender: req.body.gender,  
+         pancard: req.body.pancard,  
 		 address: req.body.address,
          pincode: req.body.pincode,
-		 mothername: req.body.mothername,
+		 
          DOB: req.body.DOB,  
 		 Fname: req.body.Fname,
          contactnumber:req.body.contactnumber
@@ -69,7 +69,7 @@ router.post("/",upload.single('image'), (req, res) => {
 	});
     
 
-	educationcheck
+	recordcheck
 		.save()
 		.then((data) => {
 			res.json(data);

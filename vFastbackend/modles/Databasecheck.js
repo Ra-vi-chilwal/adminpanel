@@ -1,16 +1,13 @@
 const mongoose = require("mongoose");
 
-const EmployementCheckSchema = mongoose.Schema({
+const DatabasecheckSchema = mongoose.Schema({
+	
 	candidatename: {
-		type: String,
-		required: true,
-	},
-    gender: {
-		type: String,
+		type:String,
 		required: true,
 	},
 	
-	contactnumber: {
+	gender: {
 		type: String,
 		required: true,
 	},
@@ -19,17 +16,28 @@ const EmployementCheckSchema = mongoose.Schema({
 		required: true,
 	},
 	
-DOB: {
+	pincode: {
 		type: String,
 		required: true,
     },
+	
+	DOB: {
+		type: String,
+		required: true,
+	},
 	Fname: {
+		type:String,
+		required: true,
+	},
+	
+	contactnumber: {
 		type: String,
 		required: true,
-    },
+	},
+	
 	date: {
 		type: Date,
 		default: Date.now,
 	},
 });
-module.exports = mongoose.model("EmployementChecks", EmployementCheckSchema);
+module.exports = mongoose.model("Databasechecks", DatabasecheckSchema);

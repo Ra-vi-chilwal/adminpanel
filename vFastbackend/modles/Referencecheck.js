@@ -1,29 +1,33 @@
 const mongoose = require("mongoose");
 
-const EmployementCheckSchema = mongoose.Schema({
+const ReferencecheckSchema = mongoose.Schema({
+    clientid:{
+        type:String,
+        required:true,
+    },
 	candidatename: {
 		type: String,
 		required: true,
 	},
-    gender: {
+    candidatecontactnumber: {
 		type: String,
 		required: true,
 	},
 	
-	contactnumber: {
+	candidateaddress: {
 		type: String,
 		required: true,
 	},
-	address: {
+	referencenumber: {
 		type: String,
 		required: true,
 	},
 	
-DOB: {
+referencename: {
 		type: String,
 		required: true,
     },
-	Fname: {
+	referenceaddress: {
 		type: String,
 		required: true,
     },
@@ -32,4 +36,4 @@ DOB: {
 		default: Date.now,
 	},
 });
-module.exports = mongoose.model("EmployementChecks", EmployementCheckSchema);
+module.exports = mongoose.model("Referencechecks", ReferencecheckSchema);

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const EmployementCheck = require("../modles/EmployementCheck");
+const Referencecheck = require("../modles/Referencecheck");
 const multer = require("multer");
  const path = require("path");
 // const upload = multer({dest : "public/uploads/"})
@@ -19,7 +19,7 @@ var upload=multer({storage:storage});
 //for get request
 router.get('/',async(req,res) => {
     try{
-           const employementcheck = await EmployementCheck.find()
+           const referencecheck = await Referencecheck.find()
            res.json(employementcheck)
     }catch(err){
         res.send('Error ' + err)
@@ -28,8 +28,8 @@ router.get('/',async(req,res) => {
 //for get by id
 router.get('/:id', async(req,res) => {
     try{
-           const employementcheck = await EmployementCheck.findById(req.params.id)
-           res.json(employementcheck)
+           const referencecheck = await Referencecheck.findById(req.params.id)
+           res.json(referencecheck)
     }catch(err){
         res.send('Error ' + err)
     }
@@ -37,10 +37,10 @@ router.get('/:id', async(req,res) => {
 router.delete('/:id',async(req,res)=> {
     try{
        // const addresscheck = await Addresscheck.findById(req.params.id) 
-        const employementcheck=await EmployementCheck.findByIdAndDelete(req.params.id);
+        const referencecheck=await Referencecheck.findByIdAndDelete(req.params.id);
 
       
-        res.json(employementcheck)   
+        res.json(referencecheck)   
     }catch(err){ 
         res.send('Error',err)
     }
@@ -50,9 +50,9 @@ router.delete('/:id',async(req,res)=> {
 //for update or patch
 router.patch('/:id',async(req,res)=> {
     try{
-        const employementcheck = await employementcheck.findById(req.params.id) 
-        employementcheck.name = req.body.name
-        const a1 = await employementcheck.save()
+        const referencecheck = await Referencecheck.findById(req.params.id) 
+        referencecheck.name = req.body.name
+        const a1 = await referencecheck.save()
         res.json(a1)   
     }catch(err){
         res.send('Error')
@@ -64,13 +64,14 @@ router.patch('/:id',async(req,res)=> {
 //for post request :
 router.post("/",upload.single('image'), (req, res) => {
     console.log(req.file)
-	const employementcheck = new EmployementCheck({
+	const referencecheck = new Referencecheck({
+        clientid:req.body.clientid,
          candidatename: req.body.candidatename,
-		 gender: req.body.gender,
-         address: req.body.address,
-		 DOB: req.body.DOB,
-         Fname: req.body.Fname,
-		 contactnumber: req.body.contactnumber,
+		 candidatecontactnumber: req.body.candidatecontactnumber,
+         candidateaddress: req.body.candidateaddress,
+		 referencenumber: req.body.referencenumber,
+         referencename: req.body.referencename,
+		 referenceaddress: req.body.referenceaddress,
         //  image:req.file.filename
         
 		
@@ -79,7 +80,7 @@ router.post("/",upload.single('image'), (req, res) => {
 	});
     
 
-	employementcheck
+	referencecheck
 		.save()
 		.then((data) => {
 			res.json(data);

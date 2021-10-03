@@ -68,6 +68,14 @@ const imageRoute = require("./routes/image");
 const companycheckRoute = require("./routes/companycheck");
 const vendorinitRoute = require("./routes/vendorinit")
 const vendercasehistoryRoute = require("./routes/vendercasehistory")
+const cibilcheckRoute = require("./routes/cibilcheck")
+const databasecheckRoute = require("./routes/databasecheck")
+const form16Route = require("./routes/form16")
+const referencecheckRoute = require("./routes/referencecheck")
+const idcheckRoute = require("./routes/idcheck");
+const criminalcheckRoute = require("./routes/criminalcheck");
+const advancegapcheckRoute = require("./routes/advancegapcheck");
+const criminallawRoute = require("./routes/criminallaw");
 //appuse
 app.use("/addresscheck", addresscheckRoute);
 app.use("/clientrelationship", clientrelationshipRoute);
@@ -79,7 +87,14 @@ app.use("/image", imageRoute);
 app.use("/companycheck", companycheckRoute);
 app.use("/vendorinit", vendorinitRoute)
 app.use("/vendercasehistory", vendercasehistoryRoute)
-
+app.use("/cibilcheck",cibilcheckRoute)
+app.use("/databasecheck",databasecheckRoute)
+app.use("/form16",form16Route)
+app.use("/referencecheck",referencecheckRoute)
+app.use("/idcheck",idcheckRoute)
+app.use("/criminalcheck",criminalcheckRoute)
+app.use("/advancegapcheck",advancegapcheckRoute)
+app.use("/criminallaw",criminallawRoute)
 //for image
 app.use('/profile', express.static('upload/images'));
 

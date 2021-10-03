@@ -1,25 +1,41 @@
 const mongoose = require("mongoose");
 
 const AddresscheckSchema = mongoose.Schema({
+	clientid:{
+		type: String,
+		required: true,	
+	},
 	name: {
 		type: String,
 		required: true,
 	},
 	Fname: {
-		type: String,
+		type: String, 
 		required: true,
 	},
 	
-	address: {
+	street: {
+		type: String,
+		required: true,
+	},
+	city: {
+		type: String,
+		required: true,
+	},
+	state: {
+		type: String,
+		required: true,
+	},
+	country: {
 		type: String,
 		required: true,
 	},
 	pincode: {
-		type: Number,
+		type: String,
 		required: true,
 	},
 	contactnumber: {
-		type: Number,
+		type: String,
 		required: true,
 	},
 	companyname: {
@@ -28,7 +44,7 @@ const AddresscheckSchema = mongoose.Schema({
 	},
 	periodofstay: {
 		type: String,
-		required: true,
+		
 	},
 	date: {
 		type: Date,

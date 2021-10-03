@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const EducationCheck = require("../modles/EducationCheck");
+const Form16 = require("../modles/Form16");
 const multer = require("multer");
  const path = require("path");
 // const upload = multer({dest : "public/uploads/"})
@@ -19,8 +19,8 @@ var upload=multer({storage:storage});
 //for get request
 router.get('/',async(req,res) => {
     try{
-           const educationcheck = await EducationCheck.find()
-           res.json(educationcheck)
+           const form16 = await Form16.find()
+           res.json(form16)
     }catch(err){
         res.send('Error ' + err)
     }
@@ -28,8 +28,8 @@ router.get('/',async(req,res) => {
 //for get by id
 router.get('/:id', async(req,res) => {
     try{
-           const educationcheck = await EducationCheck.findById(req.params.id)
-           res.json(educationcheck)
+           const form16 = await Form16.findById(req.params.id)
+           res.json(form16)
     }catch(err){
         res.send('Error ' + err)
     }
@@ -38,9 +38,9 @@ router.get('/:id', async(req,res) => {
 //for update or patch
 router.patch('/:id',async(req,res)=> {
     try{
-        const educationcheck = await educationcheck.findById(req.params.id) 
-        educationcheck.name = req.body.name
-        const a1 = await educationcheck.save()
+        const form16 = await Form16.findById(req.params.id) 
+        form16.name = req.body.name
+        const a1 = await form16.save()
         res.json(a1)   
     }catch(err){
         res.send('Error')
@@ -52,7 +52,7 @@ router.patch('/:id',async(req,res)=> {
 //for post request :
 router.post("/",upload.single('image'), (req, res) => {
     console.log(req.file)
-	const educationcheck = new EducationCheck({
+	const form16 = new Form16({
          clientid: req.body.clientid,
 		 candidatename: req.body.candidatename,
          gender: req.body.gender,  
@@ -69,7 +69,7 @@ router.post("/",upload.single('image'), (req, res) => {
 	});
     
 
-	educationcheck
+	form16
 		.save()
 		.then((data) => {
 			res.json(data);

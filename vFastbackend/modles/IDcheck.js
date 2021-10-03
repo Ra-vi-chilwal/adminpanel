@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
-const EducationCheckSchema = mongoose.Schema({
-	clientid: {
-		type: String,
-		required: true,
-	},
+const IDcheckSchema = mongoose.Schema({
+	clientid:{
+     type:String,
+     required:true,
+    },
 	candidatename: {
 		type:String,
 		required: true,
@@ -18,15 +18,15 @@ const EducationCheckSchema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	
-	pincode: {
+	pincode :{
+        type:String,
+        required:true,
+    },
+	card: {
 		type: String,
 		required: true,
     },
-	mothername: {
-		type: String,
-	required: true,
-	},
+	
 	DOB: {
 		type: String,
 		required: true,
@@ -35,6 +35,10 @@ const EducationCheckSchema = mongoose.Schema({
 		type:String,
 		required: true,
 	},
+    city:{
+        type:String,
+        required:true,
+    },
 	
 	contactnumber: {
 		type: String,
@@ -46,4 +50,4 @@ const EducationCheckSchema = mongoose.Schema({
 		default: Date.now,
 	},
 });
-module.exports = mongoose.model("EducationChecks", EducationCheckSchema);
+module.exports = mongoose.model("IDchecks", IDcheckSchema);

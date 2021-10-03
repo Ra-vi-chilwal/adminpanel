@@ -1,37 +1,31 @@
 const mongoose = require("mongoose");
 
-const EducationCheckSchema = mongoose.Schema({
-	clientid: {
-		type: String,
-		required: true,
-	},
+const AdvancegapcheckSchema = mongoose.Schema({
+	
 	candidatename: {
 		type:String,
 		required: true,
 	},
 	
-	gender: {
+	Fcompany: {
 		type: String,
 		required: true,
 	},
-	address: {
+	Seccompany: {
 		type: String,
 		required: true,
 	},
 	
-	pincode: {
+	Dufirst: {
 		type: String,
 		required: true,
     },
-	mothername: {
-		type: String,
-	required: true,
-	},
-	DOB: {
+	
+	Dusec: {
 		type: String,
 		required: true,
 	},
-	Fname: {
+	reasonofgap: {
 		type:String,
 		required: true,
 	},
@@ -46,4 +40,4 @@ const EducationCheckSchema = mongoose.Schema({
 		default: Date.now,
 	},
 });
-module.exports = mongoose.model("EducationChecks", EducationCheckSchema);
+module.exports = mongoose.model("Advancegapchecks", AdvancegapcheckSchema);

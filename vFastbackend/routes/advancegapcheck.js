@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const Addresscheck = require("../modles/Addresscheck");
+const Advancegapcheck = require("../modles/Advancegapcheck");
 
 //for get request
 router.get('/',async(req,res) => {
     try{
-           const addresscheck = await Addresscheck.find()
-           res.json(addresscheck)
+           const advancegapcheck = await Advancegapcheck.find()
+           res.json(advancegapcheck)
     }catch(err){
         res.send('Error ' + err)
     }
@@ -14,8 +14,8 @@ router.get('/',async(req,res) => {
 //for get by id
 router.get('/:id', async(req,res) => {
     try{
-           const addresscheck = await Addresscheck.findById(req.params.id)
-           res.json(addresscheck)
+           const advancegapcheck = await Advancegapcheck.findById(req.params.id)
+           res.json(advancegapcheck)
     }catch(err){
         res.send('Error ' + err)
     }
@@ -24,10 +24,10 @@ router.get('/:id', async(req,res) => {
 //for update or patch
 router.patch('/:id',async(req,res)=> {
     try{
-        const addresscheck = await Addresscheck.findById(req.params.id) 
+        const advancegapcheck = await Advancegapcheck.findById(req.params.id) 
         //const result=await Addresscheck.findByIdAndDelete(id);
-    addresscheck.name = req.body.name
-        const a1 = await addresscheck.save()
+        advancegapcheck.name = req.body.name
+        const a1 = await advancegapcheck.save()
         res.json(a1)   
     }catch(err){
         res.send('Error')
@@ -39,10 +39,10 @@ router.patch('/:id',async(req,res)=> {
 router.delete('/:id',async(req,res)=> {
     try{
        // const addresscheck = await Addresscheck.findById(req.params.id) 
-        const addresscheck =await Addresscheck.findByIdAndDelete(req.params.id);
+        const advancegapcheck =await Advancegapcheck.findByIdAndDelete(req.params.id);
 
       
-        res.json(addresscheck)   
+        res.json(advancegapcheck)   
     }catch(err){ 
         res.send('Error',err)
     }
@@ -63,22 +63,19 @@ router.delete('/:id',async(req,res)=> {
 
 //for post request :
 router.post("/", (req, res) => {
-	const addresscheck = new Addresscheck({
-        clientid:req.body.clientid,
-        name:req.body.name,
-        Fname:req.body.Fname,
-        street:req.body.street,
-        city:req.body.city,
-        state:req.body.state,
-        country:req.body.country,
-        pincode:req.body.pincode,
+	const advancegapcheck = new Advancegapcheck({
+        candidatename:req.body.candidatename,
+        Fcompany:req.body.Fcompany,
+        Seccompany:req.body.Seccompany,
+        Dufirst:req.body.Dufirst,
+        Dusec:req.body.Dusec,
+        reasonofgap:req.body.reasonofgap,
 		contactnumber: req.body.contactnumber,
-		companyname: req.body.companyname,
-		periodofstay: req.body.periodofstay,
+		
 
 	});
 
-	addresscheck
+	advancegapcheck
 		.save()
 		.then((data) => {
 			res.json(data);

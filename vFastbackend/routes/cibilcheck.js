@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const Addresscheck = require("../modles/Addresscheck");
+const Cibilcheck = require("../modles/Cibilcheck");
 
 //for get request
 router.get('/',async(req,res) => {
     try{
-           const addresscheck = await Addresscheck.find()
-           res.json(addresscheck)
+           const cibilcheck = await Cibilcheck.find()
+           res.json(cibilcheck)
     }catch(err){
         res.send('Error ' + err)
     }
@@ -14,8 +14,8 @@ router.get('/',async(req,res) => {
 //for get by id
 router.get('/:id', async(req,res) => {
     try{
-           const addresscheck = await Addresscheck.findById(req.params.id)
-           res.json(addresscheck)
+           const cibilcheck = await Cibilcheck.findById(req.params.id)
+           res.json(cibilcheck)
     }catch(err){
         res.send('Error ' + err)
     }
@@ -24,10 +24,10 @@ router.get('/:id', async(req,res) => {
 //for update or patch
 router.patch('/:id',async(req,res)=> {
     try{
-        const addresscheck = await Addresscheck.findById(req.params.id) 
+        const cibilcheck = await Cibilcheck.findById(req.params.id) 
         //const result=await Addresscheck.findByIdAndDelete(id);
-    addresscheck.name = req.body.name
-        const a1 = await addresscheck.save()
+        cibilcheck.name = req.body.name
+        const a1 = await cibilcheck.save()
         res.json(a1)   
     }catch(err){
         res.send('Error')
@@ -39,10 +39,10 @@ router.patch('/:id',async(req,res)=> {
 router.delete('/:id',async(req,res)=> {
     try{
        // const addresscheck = await Addresscheck.findById(req.params.id) 
-        const addresscheck =await Addresscheck.findByIdAndDelete(req.params.id);
+        const cibilcheck =await Cibilcheck.findByIdAndDelete(req.params.id);
 
       
-        res.json(addresscheck)   
+        res.json(cibilcheck)   
     }catch(err){ 
         res.send('Error',err)
     }
@@ -63,22 +63,19 @@ router.delete('/:id',async(req,res)=> {
 
 //for post request :
 router.post("/", (req, res) => {
-	const addresscheck = new Addresscheck({
-        clientid:req.body.clientid,
-        name:req.body.name,
+	const cibilcheck = new Cibilcheck({
+        candidatename:req.body.candidatename,
         Fname:req.body.Fname,
-        street:req.body.street,
-        city:req.body.city,
-        state:req.body.state,
-        country:req.body.country,
-        pincode:req.body.pincode,
+        DOB:req.body.DOB,
+        pancard:req.body.pancard,
+        Address:req.body.Address,
+        gender:req.body.gender,
 		contactnumber: req.body.contactnumber,
-		companyname: req.body.companyname,
-		periodofstay: req.body.periodofstay,
+		
 
 	});
 
-	addresscheck
+	cibilcheck
 		.save()
 		.then((data) => {
 			res.json(data);
